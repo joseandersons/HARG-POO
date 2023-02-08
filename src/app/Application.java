@@ -12,9 +12,30 @@ public class Application {
 	public void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		List<Cadastro> listaPaciente = new ArrayList<>();
+		List<Cadastro> listaMedico = new ArrayList<>;
 		List<Services> listaProcedimentos = new ArrayList<>();
+		int option;
 		
-		agendarConsulta(listaPaciente, listaProcedimentos)
+		System.out.println("Escolha uma das opções:");
+		System.out.println("1- Cadastro do paciente\n2- Cadastro do médico\n3- Cadastro de serviço"
+				+ "\n4- Agendar consulta\n5- Prontuário");
+		
+		option = sc.nextInt();
+		if(option == 1) {
+			
+			
+		} else if (option == 2) {
+			
+			
+		} else if (option == 3) {
+			
+			
+		} else if (option == 4) {
+			agendarConsulta(listaPaciente, listaMedico, listaProcedimentos);
+			
+		} else {
+			
+		}
 	}
 	
 	public Appointment agendarConsulta(List<Cadastro> listaPacientes,
@@ -84,5 +105,55 @@ public class Application {
 		
 		sc.close();
 		return consulta;
+	}
+	
+	public Cadastro criarFicha() {
+		Scanner sc = new Scanner(System.in);
+		
+		String name;
+		String email;
+		int idade;
+		int rg;
+		char sexo;
+		String especializacao;
+		String cpf;
+		int cartao_sus;
+		int plano_de_saude;
+		int telefone;
+		int cep;
+		String cidade;
+		String estado;
+		String rua;
+		
+		System.out.print("Nome: ");
+		name = sc.nextLine();
+		System.out.print("\nIdade: ");
+		idade = sc.nextInt();
+		System.out.print("\nRegistro Geral: ");
+		rg = sc.nextInt();
+		System.out.println("\nCPF: ");
+		sc.nextLine();
+		cpf = sc.nextLine();
+		System.out.print("\nEspecialização: ");
+		especializacao = sc.nextLine();
+		System.out.print("\nSexo: ");
+		email = sc.next();
+		System.out.print("\nEmail: ");
+		email = sc.nextLine();
+		System.out.print("\nTelefone: ");
+		telefone = sc.nextInt();
+		System.out.print("\nCEP: ");
+		cep = sc.nextInt();
+		System.out.print("\nRua: ");
+		sc.nextLine();
+		rua = sc.nextLine();
+		System.out.print("\nCidade: ");
+		cidade = sc.nextLine();
+		System.out.print("\nEstado: ");
+		estado = sc.nextLine();
+		System.out.print("\nCartão do SUS: ");
+		cartao_sus = sc.nextInt();
+		System.out.print("\nPlano de Saúde: ");
+		plano_de_saude = sc.nextInt();
 	}
 }
