@@ -5,4 +5,7 @@ public class Prontuario {
   public Cadastro medico;
   public Services servico;
   public Appointment consulta;
+  
+  public Prontuario(){
+  }
 }
