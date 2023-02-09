@@ -1,13 +1,10 @@
 package app;
 import java.util.Scanner;
 
-import entities.Appointment;
-import entities.Cadastro;
 import entities.Clinical;
-import entities.Services;
 
 public class Application {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         Clinical clinica = new Clinical();
@@ -31,14 +28,14 @@ public class Application {
             cadastrarServico(clinica);
             
         }else if(option == 4){
-            agendarConsulta(clinica);
+            //agendarConsulta(clinica);
         }else{
             System.out.println("Opcao invalida!");
         }
 
         sc.close();
     }
-    
+    /* 
     public Appointment agendarConsulta(Clinical clinica) {
         Scanner sc = new Scanner(System.in);
         Appointment consulta;
@@ -105,7 +102,7 @@ public class Application {
         sc.close();
         return consulta;
     }
-    
+     */
     public void cadastrarPaciente(Clinical clinica) {
         Scanner sc = new Scanner(System.in);
         
