@@ -34,9 +34,8 @@ public class Services {
     }
 
     public static Services buscarProcedimento(List<Services> allServices, String x) {
-        for(int i = 0; i < allServices.size(); i++) {
-            Services search = allServices.get(i);
-            if(search.procedimento == x) {
+        for(Services search : allServices) {
+            if (search.procedimento.equals(x)) {
                 return search;
             }
         }

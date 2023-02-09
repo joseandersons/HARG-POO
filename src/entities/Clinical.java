@@ -26,14 +26,23 @@ public class Clinical {
         System.out.println(paciente);
     }
 
-    public void createPatient(String name, String email, int rg, char sexo,
-                              String especializacao, String cpf,
-                              int telefone, int idade, String cidade,
-                              String bairro, String estado, String rua, int cep, int numero){
+    public void createDoctor(String name, String email, int rg, char sexo,
+                             String especializacao, String cpf,
+                             int telefone, int idade, String cidade,
+                             String bairro, String estado, String rua, int cep, int numero){
 
         Endereco endereco = new Endereco(cep, rua, cidade, bairro, numero, estado);
-        Cadastro paciente = new Cadastro(name, email, rg, sexo, especializacao, cpf, telefone, endereco, idade);
+        Cadastro doctor = new Cadastro(name, email, rg, sexo, especializacao, cpf, telefone, endereco, idade);
 
-        listaMedico.add(paciente);
+        listaMedico.add(doctor);
     }
+
+    public void createService(String procedimento, String especialidade, double valor){
+        Services service = new Services(procedimento, especialidade, valor);
+
+        listaProcedimentos.add(service);
+        System.out.println("Procedimento criado com sucesso!!\n");
+        service.printService();
+    }
+
 }

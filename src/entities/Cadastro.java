@@ -47,6 +47,24 @@ public class Cadastro {
         return null;
     }
 
+    public static Cadastro buscarCadastroCPF(List<Cadastro> allCadastros, String cpf) {
+        for(Cadastro cadastro : allCadastros) {
+            if (cadastro.cpf.equals(cpf)) {
+                return cadastro;
+            }
+        }
+        return null;
+    }
+
+    public static Cadastro buscarCadastroNome(List<Cadastro> allCadastros, String nome) {
+        for(Cadastro cadastro : allCadastros) {
+            if (cadastro.nome.equals(nome)) {
+                return cadastro;
+            }
+        }
+        return null;
+    }
+
     public String toString() {
 
         return "Paciente cadastrado com sucesso!\n\n" + 
