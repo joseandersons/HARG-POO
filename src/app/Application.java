@@ -103,7 +103,7 @@ public class Application {
         return consulta;
     }
      */
-    public void cadastrarPaciente(Clinical clinica) {
+    public static void cadastrarPaciente(Clinical clinica) {
         Scanner sc = new Scanner(System.in);
         
         String cidade, estado, rua, bairro;
@@ -118,24 +118,29 @@ public class Application {
 
         System.out.print("\nIdade: ");
         idade = sc.nextInt();
+        sc.nextLine();
 
         System.out.print("\nRegistro Geral: ");
         rg = sc.nextInt();
+        sc.nextLine();
 
         System.out.println("\nCPF: ");
         cpf = sc.nextLine();
 
         System.out.print("\nSexo: ");
         sexo = sc.next().charAt(0);
+        sc.nextLine();
 
         System.out.print("\nEmail: ");
         email = sc.nextLine();
 
         System.out.print("\nTelefone: ");
         telefone = sc.nextInt();
+        sc.nextLine();
 
         System.out.print("\nCEP: ");
         cep = sc.nextInt();
+        sc.nextLine();
 
         System.out.print("\nRua: ");
         rua = sc.nextLine();
@@ -145,6 +150,7 @@ public class Application {
 
         System.out.print("\nNumero: ");
         numero = sc.nextInt();
+        cpf = sc.nextLine();
 
         System.out.print("\nCidade: ");
         cidade = sc.nextLine();
@@ -155,15 +161,14 @@ public class Application {
         clinica.createPatient(cidade, bairro, estado, rua, name, 
                               email, cpf, numero, telefone, cep, 
                               idade, rg, sexo);
-        
         sc.close();
     }
 
-    public void cadastrarMedico(Clinical clinica){
+    public static void cadastrarMedico(Clinical clinica){
 
     }
 
-    public void cadastrarServico(Clinical clinica){
+    public static void cadastrarServico(Clinical clinica){
 
     }
 }

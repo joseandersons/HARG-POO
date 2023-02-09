@@ -17,13 +17,5 @@ public class Appointment {
         this.hora = hora;
         this.minuto = minuto;
     }
-    
-    public String toString() {
-        return "Paciente: " + paciente + "\n"
-             + "Procedimento: " + servico.procedimento + "\n"
-             + "Especialidade: " + servico.especialidade + "\n"
-             + "Medico: " + medico.nome + "\n"
-             + "Valor: $ " + String.format("%.2f", servico.valor)
-             + "Data: " + dia + "/" + mes + "/" + ano + " " + hora + ":" + "minuto";
-    } 
+
 }

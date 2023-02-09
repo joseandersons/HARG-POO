@@ -23,6 +23,7 @@ public class Clinical {
         Cadastro paciente = new Cadastro(name, email, rg, cpf, telefone, endereco, idade, sexo);
 
         listaPaciente.add(paciente);
+        System.out.println(paciente);
     }
 
     public void createPatient(String name, String email, int rg, char sexo,

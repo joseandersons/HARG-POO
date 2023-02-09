@@ -17,4 +17,13 @@ public class Endereco {
         this.numero = numero;
     }
     
+    public String toString(){
+        return "CEP: " + cep + "\n" + 
+               "Rua: " + rua + "\n" + 
+               "Cidade: " + cidade + "\n" + 
+               "Bairro: " + bairro + "\n" + 
+               "Estado: " + estado + "\n" + 
+               "Número: " + numero + "\n";
+    }
+    
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import utilites.Endereco;
 
 public class Cadastro {
-    public int rg, cartao_sus, idade;
+    public int rg, idade;
     public int telefone;
     public int plano_saude = 0;
     public char sexo;
@@ -45,6 +45,18 @@ public class Cadastro {
             }
         }
         return null;
+    }
+
+    public String toString() {
+
+        return "Paciente cadastrado com sucesso!\n\n" + 
+               "Nome: " + nome + "\n" + 
+               "Idade: " + idade + "\n" + 
+               "Sexo: " + sexo + "\n" + 
+               "RG: " + rg + "\n" + 
+               "CPF: " + cpf + "\n" + 
+               "Endereço:\n" + endereco + "\n";
+
     }
     
 }
