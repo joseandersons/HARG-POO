@@ -18,17 +18,17 @@ public class Application {
         while(true){
             System.out.println("Escolha uma das opções:");
             System.out.println("1 - Cadastro do paciente\n"
-                            + "2 - Cadastro do médico\n"
-                            + "3 - Cadastro de serviço\n"
-                            + "4 - Agendar consulta\n"
-                            + "5 - Prontuário\n");
+                             + "2 - Cadastro do médico\n"
+                             + "3 - Cadastro de serviço\n"
+                             + "4 - Agendar consulta\n"
+                             + "5 - Prontuário\n"
+                             + "6 - Sair\n");
             
             option = sc.nextInt();
             if(option == 1) {
                 criarFicha(clinica, 0);
             }else if(option == 2){
                 criarFicha(clinica, 1);
-                
             }else if(option == 3){
                 cadastrarServico(clinica);
             }else if(option == 4){
