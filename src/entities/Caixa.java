@@ -16,7 +16,7 @@ public class Caixa {
         return caixa;
     }
 
-    public void deleteList(List<Orcamento> listaOrcamento) {
+    public void clearList(List<Orcamento> listaOrcamento) {
         listaOrcamento.clear();
     }
 }
