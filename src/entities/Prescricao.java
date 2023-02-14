@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Prescricao {
+    int flag;
     public List<String> medicamentos;
     public List<Integer> intervalos;
 
@@ -13,6 +14,7 @@ public class Prescricao {
     }
 
     public void addPrescricao(String medicamento, int intervalo){
+        flag = 1;
         medicamentos.add(medicamento);
         intervalos.add(intervalo);
     }
@@ -25,5 +27,10 @@ public class Prescricao {
         }
     }
 
-    
+    public void clearPrescricao(){
+        flag = 0;
+        medicamentos.clear();
+        intervalos.clear();
+    }
+
 }
