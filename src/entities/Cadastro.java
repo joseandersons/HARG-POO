@@ -7,12 +7,13 @@ import utilites.Endereco;
 public class Cadastro {
     public int rg, idade;
     public int telefone;
-    public int plano_saude = 0;
+    public int plano_saude;
     public char sexo;
     public String cpf;
     public String nome, email;
     public String especializacao;
     public Endereco endereco;
+    public Prontuario prontuario;
     
     public Cadastro(String nome, String email, int rg, String cpf, int telefone, Endereco endereco, int idade, char sexo) {
         this.nome = nome;
@@ -23,6 +24,7 @@ public class Cadastro {
         this.endereco = endereco;
         this.idade = idade;
         this.sexo = sexo;
+        this.plano_saude = 0;
     }
 
     public Cadastro(String nome, String email, int rg, char sexo, String especializacao, String cpf,
@@ -36,6 +38,7 @@ public class Cadastro {
         this.telefone = telefone;
         this.endereco = endereco;
         this.idade = idade;
+        this.plano_saude = 3;
     }
     
     public static Cadastro buscarDoctor(List<Cadastro> list_medicos, String name_medico) {
