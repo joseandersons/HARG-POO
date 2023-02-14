@@ -182,10 +182,11 @@ public class Application {
 
         System.out.print("Valor do procedimento: ");
         valor = sc.nextDouble();
+        System.out.println("TESTE");
 
         clinica.createService(procedimento, especialidade, valor);
 
-        sc.close();
+        //sc.close();
     }
 
     public static void verProntuario(Clinical clinica){
