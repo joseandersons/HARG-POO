@@ -119,7 +119,7 @@ public class Application {
         rg = sc.nextInt();
         sc.nextLine();
 
-        System.out.println("CPF: ");
+        System.out.print("CPF: ");
         cpf = sc.nextLine();
 
         System.out.print("Sexo: ");
