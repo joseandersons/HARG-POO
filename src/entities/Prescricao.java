@@ -21,7 +21,7 @@ public class Prescricao {
         for (int i = 0; i < medicamentos.size(); i++) {
             String medicamento = medicamentos.get(i);
             Integer intervalo = intervalos.get(i);
-            System.out.println(medicamento + " - " + intervalo + "x ao dia.");
+            System.out.println(medicamento + ": de " + intervalo + " em " + intervalo + " horas.");
         }
     }
 
