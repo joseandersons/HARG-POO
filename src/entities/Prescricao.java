@@ -25,5 +25,9 @@ public class Prescricao {
         }
     }
 
-    
+    public void clearPrescricao(){
+        medicamentos.clear();
+        intervalos.clear();
+    }
+
 }
