@@ -10,7 +10,7 @@ public class Orcamento {
         this.paciente = paciente;
     }
 
-    public Orcamento(Services procedimento) {        
+    public void addOrcamento(Services procedimento) {        
         if(paciente.plano_saude == 0){
             this.valor += procedimento.valor;
         }

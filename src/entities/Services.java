@@ -10,7 +10,7 @@ public class Services {
     public double valor;
 
     public Services() {
-        
+        this.profissionais = new ArrayList<>();
     }
     
     public Services(String procedimento, String especialidade, double valor) {
