@@ -162,8 +162,8 @@ public class Application {
                                  bairro, estado, rua, cep, numero);
         }else{
             clinica.createPatient(cidade, bairro, estado, rua, name, 
-                                email, cpf, numero, telefone, cep, 
-                                idade, rg, sexo);
+                                  email, cpf, numero, telefone, cep, 
+                                  idade, rg, sexo);
         }
         //sc.close();
     }
@@ -199,8 +199,12 @@ public class Application {
             return;
         }
 
-        //clinica.getMedicalRecord(cpf);
+        if(!clinica.verificarPessoa(cpf)){
+            System.out.println("Cadastro nao encontrado!");
+            return;
+        }
 
+        System.out.println(clinica.getMedicalRecord(cpf));
     }
 }
 

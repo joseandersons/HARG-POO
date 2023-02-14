@@ -9,6 +9,8 @@ public class Clinical {
     public List<Cadastro> listaMedico;
     public List<Cadastro> listaPaciente;
     public List<Services> listaProcedimentos;
+    public List<Orcamento> listaOrcamentos;
+    public List<Appointment> listaConsultas;
 
     public Clinical(){
         this.listaMedico = new ArrayList<>();
@@ -63,6 +65,15 @@ public class Clinical {
         return pessoa.nome;
     }
 
+    public boolean verificarPessoa(String cpf){
+        Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
+        if(pessoa == null){
+            return false;
+        }
+
+        return true;
+    }
+
     public boolean verificarProcedimento(String nome){
         Services procedimento = Services.buscarProcedimento(this.listaProcedimentos, nome);
 
@@ -89,6 +100,15 @@ public class Clinical {
         }
     }
 
+    public String pegarIdadeCadastro(String cpf){
+        Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
+        if(pessoa == null){
+            return null;
+        }
+
+        return Integer.toString(pessoa.idade);
+    }
+
     public String agendarConsulta(String cpfPaciente, String nomeMedico, String nomeProcedimento,
                                 int dia, int mes, int ano, int hora, int minuto){
         Appointment consulta = new Appointment(cpfPaciente, nomeMedico, nomeProcedimento,
@@ -97,8 +117,14 @@ public class Clinical {
         Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpfPaciente);
 
         pessoa.prontuario.consultas.add(consulta);
+        this.listaConsultas.add(consulta);
 
         return consulta.toString(this, cpfPaciente);
     }
 
+    public String getMedicalRecord(String cpf){
+        Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
+
+        return pessoa.prontuario.toString(this, cpf);
+    }
 }

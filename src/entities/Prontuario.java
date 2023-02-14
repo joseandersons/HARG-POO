@@ -1,20 +1,30 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Prontuario {
     public List<Appointment> consultas;
     
     public Prontuario() {
-        
+        this.consultas = new ArrayList<>();
     }
     
-    /*public void prontPrinter() {
-        System.out.print("Paciente: " + paciente.nome + "\ntIdade: " + paciente.idade + "\tCPF: " + paciente.cpf +
-                "\nSexo: " + paciente.sexo + "\tTelefone: " + paciente.telefone + "\tEmail: " + paciente.email +
-                "\tConvênio: " paciente.convenio + "\nEndereço: " + paciente.endereço + "\tCidade: " + paciente.cidade +
-                "\tCEP: " + paciente.cep + "\tUF: " + paciente.uf + "\n");
-        System.out.print("Especialista: " + medico.nome + "\n");
-        System.out.print("Data: " + consulta.dia + "/" + consulta.mes + "/" + consulta.ano + "/tProcedimento: " consulta.servico);
-    }*/
+    public String toString(Clinical clinica, String cpfPaciente){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("================ PRONTUARIO ================\n");
+        sb.append("Nome: " + clinica.pegarNomeCadastro(cpfPaciente) + "\n");
+        sb.append("CPF: " + cpfPaciente + "\n");
+        System.out.println("Idade: " + clinica.pegarIdadeCadastro(cpfPaciente) + "\n");
+        
+        for(Appointment consulta : this.consultas) {
+            sb.append(consulta);
+            sb.append("----------------------------------\n");
+        }
+
+        System.out.println("============================================");
+
+        return sb.toString();
+    }
 }
