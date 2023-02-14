@@ -30,7 +30,7 @@ public class Services {
         for (String nome : profissionais) {
             System.out.println(nome);
         } 
-        System.out.println("Valor: " + valor);
+        System.out.println("Valor: R$" + valor);
     }
 
     public static Services buscarProcedimento(List<Services> allServices, String x) {
