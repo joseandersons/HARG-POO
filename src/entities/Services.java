@@ -42,11 +42,12 @@ public class Services {
         return null;
     }
     
-    public int verificarProfissional(String nomeMedico) {
+    public boolean verificarProfissional(String nomeMedico) {
         if (profissionais.contains(nomeMedico)) {
-            return 1;
+            return true;
+        }else{
+            return false;
         }
-        else return 0;
     }
 }
 

@@ -1,9 +1,9 @@
 package entities;
 
+import java.util.List;
+
 public class Prontuario {
-    public Cadastro paciente;
-    public Cadastro medico;
-    public Appointment consulta;
+    public List<Appointment> consultas;
     
     public Prontuario() {
         

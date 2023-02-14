@@ -33,6 +33,8 @@ public class Application {
                 cadastrarServico(clinica);
             }else if(option == 4){
                 agendarConsulta(clinica);
+            }else if(option == 5){
+                verProntuario(clinica);
             }else if(option == 6){
                 break;
             }else{
@@ -43,50 +45,36 @@ public class Application {
         sc.close();
     }
 
-    public static Appointment agendarConsulta(Clinical clinica) {
+    public static void agendarConsulta(Clinical clinica) {
         Scanner sc = new Scanner(System.in);
-        Appointment consulta;
-        Cadastro paciente;
-        Cadastro medico;
         
         System.out.print("Digite o CPF do paciente(sem pontos e tracos): ");
         String cpfPaciente = sc.nextLine();
         
         if(!CPFValidator.verificar(cpfPaciente)) {
             System.out.print("CPF Inválido!!");
-            return null;
-        }
-            
-        paciente = Cadastro.buscarCadastroCPF(clinica.listaPaciente, cpfPaciente);
-        
-        if(paciente == null) {
-            System.out.println("Paciente não encontrado!!");
-            //sc.close();
-            return null;
+            return;
         }
         
         System.out.print("Digite o nome do procedimento: ");
         String nomeProcedimento = sc.nextLine();
         
-        Services procedimento = Services.buscarProcedimento(clinica.listaProcedimentos, nomeProcedimento);
-        if(procedimento == null) {
+        if(clinica.verificarProcedimento(nomeProcedimento) == false) {
             System.out.print("Procedimento não encontrado");
-            sc.close();
-            return null;
+            //sc.close();
+            return;
         }
         
-        procedimento.printService();
+        clinica.printService(nomeProcedimento);
         
         System.out.print("Digite o nome do medico: ");
         String nomeMedico = sc.nextLine();
         
-        if(procedimento.verificarProfissional(nomeMedico) == 0) {
+        if(clinica.verProfissionalService(nomeMedico, nomeProcedimento)) {
             System.out.print("Medico nao encontrado!");
-            sc.close();
-            return null;
+            //sc.close();
+            return;
         }
-        
-        medico = Cadastro.buscarCadastroNome(clinica.listaMedico, nomeMedico);
         
         System.out.print("Digite o dia: ");
         int dia = sc.nextInt();
@@ -102,15 +90,12 @@ public class Application {
         
         System.out.print("Digite o minuto: ");
         int minuto = sc.nextInt();
-        
-        consulta = new Appointment(paciente, medico, procedimento,
-                                    dia, mes, ano, hora, minuto);
-        
+
+        String retorno = clinica.agendarConsulta(cpfPaciente, nomeMedico, nomeProcedimento,
+                                                 dia, mes, ano, hora, minuto);
+
         System.out.println("Consulta agendada com sucesso!");
-        System.out.println(consulta);
-        
-        //sc.close();
-        return consulta;
+        System.out.println(retorno);
     }
 
     public static void criarFicha(Clinical clinica, int code) {
@@ -202,4 +187,20 @@ public class Application {
 
         sc.close();
     }
+
+    public static void verProntuario(Clinical clinica){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite o CPF do paciente: ");
+        String cpf = sc.nextLine();
+
+        if(!CPFValidator.verificar(cpf)){
+            System.out.println("CPF Invalido!");
+            return;
+        }
+
+        //clinica.getMedicalRecord(cpf);
+
+    }
 }
+
