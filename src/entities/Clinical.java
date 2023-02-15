@@ -128,4 +128,18 @@ public class Clinical {
 
         return prescricao;
     }
+
+    public String exibirAgenda(int dia, int mes, int ano, int op){
+        String agenda;
+
+        if(op == 1){
+            agenda = Agenda.agendaPorProfissional(listaConsultas, dia, mes, ano);
+        }else if(op == 2){
+            agenda = Agenda.agendaPorProcedimento(listaConsultas, dia, mes, ano);
+        }else{
+            return "Opcao invalida!";
+        }
+        
+        return agenda;
+    }
 }

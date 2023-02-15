@@ -2,6 +2,7 @@ package app;
 import java.util.Scanner;
 
 import entities.Clinical;
+import entities.Agenda;
 import entities.Prescricao;
 import utilites.CPFValidator;
 
@@ -229,6 +230,22 @@ public class Application {
         }
 
         System.out.println("Prescricao cadastrada com sucesso!");
+    }
+
+    public static void exibirAgenda(Clinical clinica){
+        Scanner sc = new Scanner(System.in);
+
+        int dia = sc.nextInt();
+        int mes = sc.nextInt();
+        int ano = sc.nextInt();
+
+        System.out.println("[1] Filtrar por profissional");
+        System.out.println("[2] Filtrar por procedimento");
+        int op = sc.nextInt();
+
+        String agenda = clinica.exibirAgenda(dia, mes, ano, op);
+
+        System.out.println(agenda);
     }
 }
 
