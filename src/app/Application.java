@@ -2,6 +2,11 @@ package app;
 import java.util.Scanner;
 
 import entities.Clinical;
+<<<<<<< HEAD
+import entities.Agenda;
+import entities.Caixa;
+=======
+>>>>>>> b41089f31eb6448381730a93f41e079c04884fb5
 import entities.Prescricao;
 import utilites.CPFValidator;
 
@@ -12,20 +17,23 @@ public class Application {
         Clinical clinica = new Clinical();
 
         int option;
-        
+
+        System.out.printf("Bem Vindo!\nAbrindo Caixa do dia...\n");
+        clinica.abrirCaixa();
+
+
         while(true){
             System.out.println("Escolha uma das opções:");
             System.out.println("01 - Cadastro do paciente\n"
                              + "02 - Cadastro do médico\n"
                              + "03 - Cadastro de serviço\n"
                              + "04 - Agendar consulta\n"
-                             + "05 - Exibir Prontuário\n"
+                             + "05 - Exibir Prontuário\n"8
                              + "06 - Exibir Agenda\n"
                              + "07 - Criar prescricao\n"
                              + "08 - Gerar orçamento\n"
-                             + "09 - Abrir Caixa\n"
-                             + "10 - Fechar Caixa\n"
-                             + "11 - Sair");
+                             + "09 - Fechar Caixa\n"
+                             + "10 - Sair");
             
             option = sc.nextInt();
 
@@ -51,16 +59,18 @@ public class Application {
 
             }else if(option == 6){
 
-                //ExibirAgenda
+                exibirAgenda(clinica);
 
             }else if(option == 7){
 
                 cadastrarPrescricao(clinica);
+        
+            }else if(option == 9){
+                fecharCaixa(clinica);
 
-            }else if(option == 11){
+            }else if(option == 10){
 
                 break;
-
             }else{
 
                 System.out.println("Opcao invalida!");
@@ -246,4 +256,13 @@ public class Application {
 
         System.out.println(agenda);
     }
+<<<<<<< HEAD
+    public static void fecharCaixa(Clinical clinica){
+       clinica.fecharCaixa();
+       System.out.println("Caixa fechado com sucesso!");
+    }
 }
+
+=======
+}
+>>>>>>> b41089f31eb6448381730a93f41e079c04884fb5
