@@ -11,11 +11,12 @@ public class Clinical {
     public List<Appointment> listaConsultas;
     public Caixa caixa;
         
-    
     public Clinical(){
         this.listaMedico = new ArrayList<>();
         this.listaPaciente = new ArrayList<>();
         this.listaProcedimentos = new ArrayList<>();
+        this.listaOrcamentos = new ArrayList<>();
+        this.listaConsultas = new ArrayList<>();
     }
 
     public void createPatient(String name, String cpf, int idade, char sexo){

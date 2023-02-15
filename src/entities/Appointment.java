@@ -3,11 +3,11 @@ package entities;
 import java.util.Random;
 
 public class Appointment {
-    int id;
+    public int id;
+    public int dia, mes, ano, hora, minuto;
     public String cpfPaciente;
     public String nomeMedico;
     public String nomeServico;
-    public int dia, mes, ano, hora, minuto;
     
     public Appointment(String cpfPaciente, String nomeMedico, String nomeServico,
                        int dia, int mes, int ano, int hora, int minuto){
