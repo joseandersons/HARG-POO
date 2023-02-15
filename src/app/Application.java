@@ -253,6 +253,7 @@ public class Application {
 
         System.out.println(agenda);
     }
+
     public static void fecharCaixa(Clinical clinica){
        clinica.fecharCaixa();
        System.out.println("Caixa fechado com sucesso!");
