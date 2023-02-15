@@ -190,4 +190,10 @@ public class Clinical {
 
         pessoa.plano_saude = nivel;
     }
+
+    public int pegarFator(String cpf){
+        Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
+
+        return pessoa.prioridade.getFator();
+    }
 }
