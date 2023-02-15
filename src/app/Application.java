@@ -253,13 +253,10 @@ public class Application {
 
         System.out.println(agenda);
     }
-<<<<<<< HEAD
+    
     public static void fecharCaixa(Clinical clinica){
        clinica.fecharCaixa();
        System.out.println("Caixa fechado com sucesso!");
     }
 }
 
-=======
-}
->>>>>>> b41089f31eb6448381730a93f41e079c04884fb5
