@@ -25,10 +25,13 @@ public class Services {
     
     public void printService() {
         System.out.println("Procedimento: " + procedimento);
-        System.out.println("Profissionais: ");
-        for (String nome : profissionais) {
-            System.out.println(nome);
-        } 
+        if(profissionais.size() != 0){
+            System.out.println("Profissionais: ");
+
+            for (String nome : profissionais) {
+                System.out.println(nome);
+            } 
+        }
         System.out.println("Valor: R$" + valor);
     }
 
