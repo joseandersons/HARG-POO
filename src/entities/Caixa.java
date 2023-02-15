@@ -22,7 +22,7 @@ public class Caixa {
         }
 
         System.out.println();
-        System.out.printf("Total de dinheiro em caixa: %.2f\n", caixa);
+        System.out.printf("Total de dinheiro em caixa: R$%.2f\n", caixa);
         listaOrcamento.clear();
         this.caixa = 0;
     }
