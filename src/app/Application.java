@@ -92,10 +92,10 @@ public class Application {
         System.out.print("Digite o CPF do paciente(sem pontos e tracos): ");
         String cpfPaciente = sc.nextLine();
         
-        if(!CPFValidator.verificar(cpfPaciente)) {
+        /*if(!CPFValidator.verificar(cpfPaciente)) {
             System.out.print("CPF Inválido!!");
             return;
-        }
+        }*/
 
         if(!clinica.verificarPessoa(cpfPaciente)){
             System.out.println("Cadastro nao encontrado!\n");
