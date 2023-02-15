@@ -54,11 +54,12 @@ public class Services {
     }
     
     public boolean verificarProfissional(String nomeMedico) {
-        if (profissionais.contains(nomeMedico)) {
+
+        if(profissionais.equals(nomeMedico)){
             return true;
-        }else{
-            return false;
         }
+        
+        return false;
     }
 }
 

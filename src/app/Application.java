@@ -207,7 +207,7 @@ public class Application {
             System.out.print("\nDigite a especializacao: ");
             especializacao = sc.nextLine();
 
-            clinica.createDoctor(name, sexo, cpf, especializacao, idade,
+            clinica.createDoctor(name, sexo, especializacao, cpf, idade,
                                  tabagismo, obesidade, hipertensao, gestante,
                                  diabetes);
         }else{
@@ -281,6 +281,7 @@ public class Application {
 
             System.out.println("Intervalo: ");
             int intervalo = sc.nextInt();
+            sc.nextLine();
 
             prescricao.addPrescricao(nomeMedicamento, intervalo);
 

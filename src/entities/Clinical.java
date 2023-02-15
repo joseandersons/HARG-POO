@@ -57,6 +57,8 @@ public class Clinical {
         Services service = new Services(procedimento, especialidade, valor);
 
         for(Cadastro cadastro : this.listaMedico) {
+            System.out.println("Teste");
+            System.out.printf("medico %s servico %s", cadastro.especializacao, especialidade);
             if(cadastro.especializacao.equals(especialidade)){
                 service.addProfissional(cadastro);
             }
@@ -173,6 +175,8 @@ public class Clinical {
         Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
 
         Orcamento orcamento = new Orcamento(pessoa);
+
+        this.listaOrcamentos.add(orcamento);
 
         return orcamento;
     }

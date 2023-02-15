@@ -18,11 +18,16 @@ public class Prontuario {
         sb.append("================ PRONTUARIO ================\n");
         sb.append("Nome: " + clinica.pegarNomeCadastro(cpfPaciente) + "\n");
         sb.append("CPF: " + cpfPaciente + "\n");
-        System.out.println("Idade: " + clinica.pegarIdadeCadastro(cpfPaciente) + "\n");
+        sb.append("Idade: " + clinica.pegarIdadeCadastro(cpfPaciente) + "\n");
         
         for(Appointment consulta : this.consultas) {
-            sb.append(consulta);
+            sb.append(consulta.toString(clinica, cpfPaciente));
             sb.append("----------------------------------\n");
+        }
+
+        for(Prescricao prescricao : this.prescricoes) {
+            sb.append(prescricao.toString());
+            sb.append("\n----------------------------------\n");
         }
 
         System.out.println("============================================");

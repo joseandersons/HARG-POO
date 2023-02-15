@@ -9,7 +9,7 @@ public class Agenda {
 
         for(int i = 0; i < list_consultas.size(); i++){
             if(list_consultas.get(i).dia == dia && list_consultas.get(i).mes == mes && list_consultas.get(i).ano == ano){
-                String aux = String.format("%d/%d/%d -> Procedimento: %s/n", dia, mes, ano, list_consultas.get(i).nomeServico);
+                String aux = String.format("%d/%d/%d -> Procedimento: %s\n", dia, mes, ano, list_consultas.get(i).nomeServico);
                 sb.append(aux);
             }
         }
@@ -22,7 +22,7 @@ public class Agenda {
 
         for(int i = 0; i < list_consultas.size(); i++){
             if(list_consultas.get(i).dia == dia && list_consultas.get(i).mes == mes && list_consultas.get(i).ano == ano){
-                String aux = String.format("%d/%d/%d - %d:%d -> Procedimento: %s/n", dia, mes, ano, list_consultas.get(i).nomeMedico, list_consultas.get(i).hora, list_consultas.get(i).minuto);
+                String aux = String.format("%d/%d/%d - %d:%d -> Profissional: %s\n", dia, mes, ano, list_consultas.get(i).hora, list_consultas.get(i).minuto, list_consultas.get(i).nomeMedico);
                 sb.append(aux);
             }
         }
