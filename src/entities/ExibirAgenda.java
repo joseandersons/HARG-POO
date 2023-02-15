@@ -12,6 +12,7 @@ public class ExibirAgenda {
         }
 
     }
+    
     public static void agenda_por_profissional(List<Appointment> list_consultas, int dia, int mes, int ano){
         for(int i = 0; i < list_consultas.size(); i++){
             if(list_consultas.get(i).dia == dia && list_consultas.get(i).mes == mes && list_consultas.get(i).ano == ano)

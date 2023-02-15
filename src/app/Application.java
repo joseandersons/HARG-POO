@@ -40,6 +40,8 @@ public class Application {
                 verProntuario(clinica);
             }else if(option == 6){
                 //ExibirAgenda
+            }else if(option == 7){
+                cadastrarPrescricao(clinica);
             }else if(option == 11){
                 break;
             }else{
