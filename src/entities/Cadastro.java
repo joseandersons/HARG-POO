@@ -20,6 +20,7 @@ public class Cadastro {
         this.sexo = sexo;
         this.plano_saude = 0;
         this.prioridade = prioridade;
+        this.prontuario = new Prontuario();
     }
 
     public Cadastro(String nome, char sexo, String especializacao, String cpf, int idade, Prioridade prioridade) {
@@ -30,6 +31,7 @@ public class Cadastro {
         this.idade = idade;
         this.plano_saude = 3;
         this.prioridade = prioridade;
+        this.prontuario = new Prontuario();
     }
     
     public static Cadastro buscarDoctor(List<Cadastro> list_medicos, String name_medico) {
