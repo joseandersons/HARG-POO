@@ -1,16 +1,22 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Orcamento {
-    public Services procedimento;
+    public List<Services> procedimento;
     public Cadastro paciente;
     double valor;
 
     public Orcamento(Cadastro paciente) {
+        procedimento = new ArrayList<>();
         this.paciente = paciente;
     }
 
-    public void addOrcamento(Services procedimento) {        
+    public void addOrcamento(Services procedimento) {     
+        this.procedimento.add(procedimento);
+        
         if(paciente.plano_saude == 0){
             this.valor += procedimento.valor;
         }
