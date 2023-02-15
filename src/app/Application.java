@@ -369,7 +369,7 @@ public class Application {
     public static void cadastrarConvenio(Clinical clinica){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("CPF: ");
+        System.out.print("CPF: ");
         String cpf = sc.nextLine();
 
         if(!CPFValidator.verificar(cpf)){
@@ -382,7 +382,7 @@ public class Application {
             return;
         }
 
-        System.out.println("Nivel do Convenio: ");
+        System.out.print("Nivel do Convenio: ");
         int nivel = sc.nextInt();
         sc.nextLine();
 

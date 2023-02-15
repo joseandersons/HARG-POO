@@ -20,6 +20,7 @@ public class Prontuario {
         sb.append("CPF: " + cpfPaciente + "\n");
         sb.append("Idade: " + clinica.pegarIdadeCadastro(cpfPaciente) + "\n");
         sb.append("Fator de Risco: " + clinica.pegarFator(cpfPaciente) + "\n");
+        sb.append("Convenio: " + clinica.pegarConvenio(cpfPaciente) + "\n");
         
         for(Appointment consulta : this.consultas) {
             sb.append(consulta.toString(clinica, cpfPaciente));

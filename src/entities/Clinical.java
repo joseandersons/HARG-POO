@@ -196,4 +196,10 @@ public class Clinical {
 
         return pessoa.prioridade.getFator();
     }
+
+    public int pegarConvenio(String cpf){
+        Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
+
+        return pessoa.plano_saude;
+    }
 }
