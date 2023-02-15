@@ -302,8 +302,13 @@ public class Application {
     public static void exibirAgenda(Clinical clinica){
         Scanner sc = new Scanner(System.in);
 
+        System.out.print("Dia: ");
         int dia = sc.nextInt();
+
+        System.out.print("Mes: ");
         int mes = sc.nextInt();
+
+        System.out.print("Ano: ");
         int ano = sc.nextInt();
 
         System.out.println("[1] Filtrar por profissional");
