@@ -19,17 +19,30 @@ public class Clinical {
         this.listaConsultas = new ArrayList<>();
     }
 
-    public void createPatient(String name, String cpf, int idade, char sexo){
+    public void createPatient(String name, String cpf, int idade, char sexo,
+                              boolean tabagismo, boolean obesidade, boolean hipertensao, boolean gestante,
+                              boolean diabetes){
+        
+        Prioridade prioridade = new Prioridade(idade, tabagismo, obesidade,
+                                               hipertensao, gestante, diabetes);
+        prioridade.setPrioridade();
 
-        Cadastro paciente = new Cadastro(name, cpf, idade, sexo);
+        Cadastro paciente = new Cadastro(name, cpf, idade, sexo, prioridade);
 
         listaPaciente.add(paciente);
         System.out.println(paciente);
     }
 
-    public void createDoctor(String name, char sexo, String especializacao, String cpf, int idade){
+    public void createDoctor(String name, char sexo, String especializacao, String cpf, int idade, 
+                             boolean tabagismo, boolean obesidade, boolean hipertensao, boolean gestante,
+                             boolean diabetes){
+        
 
-        Cadastro doctor = new Cadastro(name, sexo, especializacao, cpf, idade);
+        Prioridade prioridade = new Prioridade(idade, tabagismo, obesidade,
+                                               hipertensao, gestante, diabetes);
+        prioridade.setPrioridade();
+
+        Cadastro doctor = new Cadastro(name, sexo, especializacao, cpf, idade, prioridade);
         
         Services procedimento = Services.buscarProcedimentoEsp(this.listaProcedimentos, especializacao);
 

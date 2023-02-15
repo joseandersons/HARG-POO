@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 import entities.Clinical;
 import entities.Orcamento;
-import entities.Agenda;
-import entities.Caixa;
 import entities.Prescricao;
 import entities.Services;
 import utilites.CPFValidator;
@@ -163,13 +161,59 @@ public class Application {
         System.out.print("Sexo: ");
         sexo = sc.next().charAt(0);
 
+        boolean tabagismo, obesidade, hipertensao, gestante, diabetes;
+
+        System.out.println("Fumante?(s/n)");
+        char op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            tabagismo = true;
+        }else{
+            tabagismo = false;
+        }
+
+        System.out.println("Obesidade?(s/n)");
+        op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            obesidade = true;
+        }else{
+            obesidade = false;
+        }
+
+        System.out.println("Hipertensao?(s/n)");
+        op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            hipertensao = true;
+        }else{
+            hipertensao = false;
+        }
+
+        System.out.println("Gestante?(s/n)");
+        op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            gestante = true;
+        }else{
+            gestante = false;
+        }
+
+        System.out.println("Diabetes?(s/n)");
+        op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            diabetes = true;
+        }else{
+            diabetes = false;
+        }
+
         if(code == 1){
             System.out.print("\nDigite a especializacao: ");
             especializacao = sc.nextLine();
 
-            clinica.createDoctor(name, sexo, cpf, especializacao, idade);
+            clinica.createDoctor(name, sexo, cpf, especializacao, idade,
+                                 tabagismo, obesidade, hipertensao, gestante,
+                                 diabetes);
         }else{
-            clinica.createPatient(name, cpf, idade, sexo);
+            clinica.createPatient(name, cpf, idade, sexo, tabagismo,
+                                  obesidade, hipertensao, gestante,
+                                  diabetes);
         }
         //sc.close();
     }

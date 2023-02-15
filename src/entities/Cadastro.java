@@ -13,21 +13,23 @@ public class Cadastro {
     public Prontuario prontuario;
     public Prioridade prioridade;
     
-    public Cadastro(String nome, String cpf, int idade, char sexo) {
+    public Cadastro(String nome, String cpf, int idade, char sexo, Prioridade prioridade) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
         this.sexo = sexo;
         this.plano_saude = 0;
+        this.prioridade = prioridade;
     }
 
-    public Cadastro(String nome, char sexo, String especializacao, String cpf, int idade) {
+    public Cadastro(String nome, char sexo, String especializacao, String cpf, int idade, Prioridade prioridade) {
         this.nome = nome;
         this.sexo = sexo;
         this.especializacao = especializacao;
         this.cpf = cpf;
         this.idade = idade;
         this.plano_saude = 3;
+        this.prioridade = prioridade;
     }
     
     public static Cadastro buscarDoctor(List<Cadastro> list_medicos, String name_medico) {
