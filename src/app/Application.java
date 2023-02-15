@@ -2,7 +2,6 @@ package app;
 import java.util.Scanner;
 
 import entities.Clinical;
-import entities.Agenda;
 import entities.Prescricao;
 import utilites.CPFValidator;
 
@@ -248,4 +247,3 @@ public class Application {
         System.out.println(agenda);
     }
 }
-
