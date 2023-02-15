@@ -159,7 +159,7 @@ public class Application {
         cpf = sc.nextLine();
 
         System.out.print("Sexo: ");
-        sexo = sc.next().charAt(0);
+        sexo = sc.nextLine().charAt(0);
 
         boolean tabagismo, obesidade, hipertensao, gestante, diabetes;
 
@@ -354,4 +354,3 @@ public class Application {
     }
 
 }
-
