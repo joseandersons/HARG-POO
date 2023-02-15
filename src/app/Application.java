@@ -25,9 +25,10 @@ public class Application {
                              + "08 - Gerar orçamento\n"
                              + "09 - Abrir Caixa\n"
                              + "10 - Fechar Caixa\n"
-                             + "11 - Sair\n");
+                             + "11 - Sair");
             
             option = sc.nextInt();
+
             if(option == 1) {
 
                 criarFicha(clinica, 0);
@@ -49,13 +50,15 @@ public class Application {
                 verProntuario(clinica);
 
             }else if(option == 6){
+
                 //ExibirAgenda
+
             }else if(option == 7){
 
                 cadastrarPrescricao(clinica);
 
             }else if(option == 11){
-                
+
                 break;
 
             }else{
@@ -135,46 +138,13 @@ public class Application {
 
         System.out.print("Idade: ");
         idade = sc.nextInt();
+        cpf = sc.nextLine();
 
         System.out.print("CPF: ");
         cpf = sc.nextLine();
 
         System.out.print("Sexo: ");
         sexo = sc.next().charAt(0);
-        sc.nextLine();
-
-        /*
-        System.out.print("Registro Geral: ");
-        rg = sc.nextInt();
-        sc.nextLine();
-        
-        System.out.print("\nEmail: ");
-        email = sc.nextLine();
-
-        System.out.print("\nTelefone: ");
-        telefone = sc.nextInt();
-        sc.nextLine();
-
-        System.out.print("\nCEP: ");
-        cep = sc.nextInt();
-        sc.nextLine();
-
-        System.out.print("\nRua: ");
-        rua = sc.nextLine();
-
-        System.out.print("\nBairro: ");
-        bairro = sc.nextLine();
-
-        System.out.print("\nNumero: ");
-        numero = sc.nextInt();
-        sc.nextLine();
-
-        System.out.print("\nCidade: ");
-        cidade = sc.nextLine();
-
-        System.out.print("\nEstado: ");
-        estado = sc.nextLine();
-        */
 
         if(code == 1){
             System.out.print("\nDigite a especializacao: ");
