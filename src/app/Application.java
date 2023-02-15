@@ -2,8 +2,11 @@ package app;
 import java.util.Scanner;
 
 import entities.Clinical;
+<<<<<<< HEAD
 import entities.Agenda;
 import entities.Caixa;
+=======
+>>>>>>> b41089f31eb6448381730a93f41e079c04884fb5
 import entities.Prescricao;
 import utilites.CPFValidator;
 
@@ -253,9 +256,13 @@ public class Application {
 
         System.out.println(agenda);
     }
+<<<<<<< HEAD
     public static void fecharCaixa(Clinical clinica){
        clinica.fecharCaixa();
        System.out.println("Caixa fechado com sucesso!");
     }
 }
 
+=======
+}
+>>>>>>> b41089f31eb6448381730a93f41e079c04884fb5

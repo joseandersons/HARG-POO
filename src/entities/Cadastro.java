@@ -11,6 +11,7 @@ public class Cadastro {
     public String nome, email;
     public String especializacao;
     public Prontuario prontuario;
+    public Prioridade prioridade;
     
     public Cadastro(String nome, String cpf, int idade, char sexo) {
         this.nome = nome;
