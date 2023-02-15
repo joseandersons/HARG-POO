@@ -2,8 +2,6 @@ package entities;
 
 import java.util.List;
 
-import utilites.Endereco;
-
 public class Cadastro {
     public int rg, idade;
     public int telefone;
@@ -12,31 +10,21 @@ public class Cadastro {
     public String cpf;
     public String nome, email;
     public String especializacao;
-    public Endereco endereco;
     public Prontuario prontuario;
     
-    public Cadastro(String nome, String email, int rg, String cpf, int telefone, Endereco endereco, int idade, char sexo) {
+    public Cadastro(String nome, String cpf, int idade, char sexo) {
         this.nome = nome;
-        this.email = email;
-        this.rg = rg;
         this.cpf = cpf;
-        this.telefone = telefone;
-        this.endereco = endereco;
         this.idade = idade;
         this.sexo = sexo;
         this.plano_saude = 0;
     }
 
-    public Cadastro(String nome, String email, int rg, char sexo, String especializacao, String cpf,
-                    int telefone, Endereco endereco, int idade) {
+    public Cadastro(String nome, char sexo, String especializacao, String cpf, int idade) {
         this.nome = nome;
-        this.email = email;
-        this.rg = rg;
         this.sexo = sexo;
         this.especializacao = especializacao;
         this.cpf = cpf;
-        this.telefone = telefone;
-        this.endereco = endereco;
         this.idade = idade;
         this.plano_saude = 3;
     }
@@ -68,16 +56,17 @@ public class Cadastro {
         return null;
     }
 
+    public void addPrescricao(Prescricao prescricao){
+        this.prontuario.prescricoes.add(prescricao);
+    }
+
     public String toString() {
 
         return "Paciente cadastrado com sucesso!\n\n" + 
                "Nome: " + nome + "\n" + 
                "Idade: " + idade + "\n" + 
                "Sexo: " + sexo + "\n" + 
-               "RG: " + rg + "\n" + 
-               "CPF: " + cpf + "\n" + 
-               "Endereço:\n" + endereco + "\n";
-
+               "CPF: " + cpf + "\n";
     }
     
 }

@@ -3,8 +3,6 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import utilites.Endereco;
-
 public class Clinical {
     public List<Cadastro> listaMedico;
     public List<Cadastro> listaPaciente;
@@ -18,23 +16,17 @@ public class Clinical {
         this.listaProcedimentos = new ArrayList<>();
     }
 
-    public void createPatient(String cidade, String bairro, String estado, String rua,
-                              String name, String email, String cpf, int numero,
-                              int telefone, int cep, int idade, int rg, char sexo){
-        Endereco endereco = new Endereco(cep, rua, cidade, bairro, numero, estado);
-        Cadastro paciente = new Cadastro(name, email, rg, cpf, telefone, endereco, idade, sexo);
+    public void createPatient(String name, String cpf, int idade, char sexo){
+
+        Cadastro paciente = new Cadastro(name, cpf, idade, sexo);
 
         listaPaciente.add(paciente);
         System.out.println(paciente);
     }
 
-    public void createDoctor(String name, String email, int rg, char sexo,
-                             String especializacao, String cpf,
-                             int telefone, int idade, String cidade,
-                             String bairro, String estado, String rua, int cep, int numero){
+    public void createDoctor(String name, char sexo, String especializacao, String cpf, int idade){
 
-        Endereco endereco = new Endereco(cep, rua, cidade, bairro, numero, estado);
-        Cadastro doctor = new Cadastro(name, email, rg, sexo, especializacao, cpf, telefone, endereco, idade);
+        Cadastro doctor = new Cadastro(name, sexo, especializacao, cpf, idade);
 
         listaMedico.add(doctor);
     }
@@ -126,5 +118,14 @@ public class Clinical {
         Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
 
         return pessoa.prontuario.toString(this, cpf);
+    }
+
+    public Prescricao criarPrescricao(String cpf){
+        Prescricao prescricao = new Prescricao();
+        Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
+
+        pessoa.addPrescricao(prescricao);
+
+        return prescricao;
     }
 }

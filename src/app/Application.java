@@ -1,11 +1,8 @@
 package app;
 import java.util.Scanner;
 
-import entities.Appointment;
-import entities.Cadastro;
 import entities.Clinical;
-import entities.Services;
-import entities.ExibirAgenda;
+import entities.Prescricao;
 import utilites.CPFValidator;
 
 public class Application {
@@ -68,7 +65,7 @@ public class Application {
         String nomeProcedimento = sc.nextLine();
         
         if(clinica.verificarProcedimento(nomeProcedimento) == false) {
-            System.out.print("Procedimento não encontrado");
+            System.out.print("Procedimento não encontrado\n");
             //sc.close();
             return;
         }
@@ -79,24 +76,24 @@ public class Application {
         String nomeMedico = sc.nextLine();
         
         if(clinica.verProfissionalService(nomeMedico, nomeProcedimento)) {
-            System.out.print("Medico nao encontrado!");
+            System.out.print("Medico nao encontrado!\n");
             //sc.close();
             return;
         }
         
-        System.out.print("Digite o dia: ");
+        System.out.print("Dia: ");
         int dia = sc.nextInt();
         
-        System.out.print("Digite o mes: ");
+        System.out.print("Mes: ");
         int mes = sc.nextInt();
         
-        System.out.print("Digite o ano: ");
+        System.out.print("Ano: ");
         int ano = sc.nextInt();
         
-        System.out.print("Digite a hora: ");
+        System.out.print("Hora: ");
         int hora = sc.nextInt();
         
-        System.out.print("Digite o minuto: ");
+        System.out.print("Minuto: ");
         int minuto = sc.nextInt();
 
         String retorno = clinica.agendarConsulta(cpfPaciente, nomeMedico, nomeProcedimento,
@@ -109,23 +106,17 @@ public class Application {
     public static void criarFicha(Clinical clinica, int code) {
         Scanner sc = new Scanner(System.in);
         
-        String cidade, estado, rua, bairro;
-        String name, email;
-        String cpf;
-        String especializacao;
-        int telefone, cep, numero;
-        int idade, rg;
+        int idade;
         char sexo;
+        String cpf;
+        String name;
+        String especializacao;
         
         System.out.print("Nome: ");
         name = sc.nextLine();
 
         System.out.print("Idade: ");
         idade = sc.nextInt();
-
-        System.out.print("Registro Geral: ");
-        rg = sc.nextInt();
-        sc.nextLine();
 
         System.out.print("CPF: ");
         cpf = sc.nextLine();
@@ -134,6 +125,11 @@ public class Application {
         sexo = sc.next().charAt(0);
         sc.nextLine();
 
+        /*
+        System.out.print("Registro Geral: ");
+        rg = sc.nextInt();
+        sc.nextLine();
+        
         System.out.print("\nEmail: ");
         email = sc.nextLine();
 
@@ -160,18 +156,14 @@ public class Application {
 
         System.out.print("\nEstado: ");
         estado = sc.nextLine();
+        */
 
         if(code == 1){
             System.out.print("\nDigite a especializacao: ");
             especializacao = sc.nextLine();
-            clinica.createDoctor(name, email, rg, sexo,
-                                 especializacao, cpf,
-                                 telefone, idade, cidade,
-                                 bairro, estado, rua, cep, numero);
+            clinica.createDoctor(name, sexo, cpf, especializacao, idade);
         }else{
-            clinica.createPatient(cidade, bairro, estado, rua, name, 
-                                  email, cpf, numero, telefone, cep, 
-                                  idade, rg, sexo);
+            clinica.createPatient(name, cpf, idade, sexo);
         }
         //sc.close();
     }
@@ -190,7 +182,6 @@ public class Application {
 
         System.out.print("Valor do procedimento: ");
         valor = sc.nextDouble();
-        System.out.println("TESTE");
 
         clinica.createService(procedimento, especialidade, valor);
 
@@ -214,6 +205,41 @@ public class Application {
         }
 
         System.out.println(clinica.getMedicalRecord(cpf));
+    }
+
+    public static void cadastrarPrescricao(Clinical clinica){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+
+        if(!CPFValidator.verificar(cpf)){
+            System.out.println("CPF Invalido!");
+            return;
+        }
+
+        if(!clinica.verificarPessoa(cpf)){
+            System.out.println("Cadastro nao encontrado!");
+            return;
+        }
+
+        Prescricao prescricao = clinica.criarPrescricao(cpf);
+
+        while(true){
+            System.out.println("Medicamento: ");
+            String nomeMedicamento = sc.nextLine();
+
+            System.out.println("Intervalo: ");
+            int intervalo = sc.nextInt();
+
+            prescricao.addPrescricao(nomeMedicamento, intervalo);
+
+            System.out.println("Deseja cadastrar outro? (s/n)");
+            char op = sc.nextLine().charAt(0);
+            if(op == 'n')
+                break;
+        }
+
     }
 }
 
