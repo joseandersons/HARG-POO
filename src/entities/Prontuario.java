@@ -5,9 +5,11 @@ import java.util.List;
 
 public class Prontuario {
     public List<Appointment> consultas;
+    public List<Prescricao> prescricoes;
     
     public Prontuario() {
         this.consultas = new ArrayList<>();
+        this.prescricoes = new ArrayList<>();
     }
     
     public String toString(Clinical clinica, String cpfPaciente){

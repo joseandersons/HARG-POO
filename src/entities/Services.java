@@ -23,7 +23,6 @@ public class Services {
         profissionais.add(profissional.nome);
     }
     
-    
     public void printService() {
         System.out.println("Procedimento: " + procedimento);
         System.out.println("Profissionais: ");

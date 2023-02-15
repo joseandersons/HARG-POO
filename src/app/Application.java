@@ -5,6 +5,7 @@ import entities.Appointment;
 import entities.Cadastro;
 import entities.Clinical;
 import entities.Services;
+import entities.ExibirAgenda;
 import utilites.CPFValidator;
 
 public class Application {
@@ -17,12 +18,17 @@ public class Application {
         
         while(true){
             System.out.println("Escolha uma das opções:");
-            System.out.println("1 - Cadastro do paciente\n"
-                             + "2 - Cadastro do médico\n"
-                             + "3 - Cadastro de serviço\n"
-                             + "4 - Agendar consulta\n"
-                             + "5 - Prontuário\n"
-                             + "6 - Sair\n");
+            System.out.println("01 - Cadastro do paciente\n"
+                             + "02 - Cadastro do médico\n"
+                             + "03 - Cadastro de serviço\n"
+                             + "04 - Agendar consulta\n"
+                             + "05 - Exibir Prontuário\n"
+                             + "06 - Exibir Agenda\n"
+                             + "07 - Criar prescricao\n"
+                             + "08 - Gerar orçamento\n"
+                             + "09 - Abrir Caixa\n"
+                             + "10 - Fechar Caixa\n"
+                             + "11 - Sair\n");
             
             option = sc.nextInt();
             if(option == 1) {
@@ -36,6 +42,8 @@ public class Application {
             }else if(option == 5){
                 verProntuario(clinica);
             }else if(option == 6){
+                //ExibirAgenda
+            }else if(option == 11){
                 break;
             }else{
                 System.out.println("Opcao invalida!");
