@@ -32,9 +32,18 @@ public class Services {
         System.out.println("Valor: R$" + valor);
     }
 
-    public static Services buscarProcedimento(List<Services> allServices, String x) {
+    public static Services buscarProcedimentoNome(List<Services> allServices, String x){
         for(Services search : allServices) {
             if (search.procedimento.equals(x)) {
+                return search;
+            }
+        }
+        return null;
+    }
+
+    public static Services buscarProcedimentoEsp(List<Services> allServices, String x){
+        for(Services search : allServices) {
+            if (search.especialidade.equals(x)) {
                 return search;
             }
         }

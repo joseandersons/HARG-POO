@@ -57,6 +57,15 @@ public class Cadastro {
         return null;
     }
 
+    public static Cadastro buscarCadastroEsp(List<Cadastro> allCadastros, String nome) {
+        for(Cadastro cadastro : allCadastros) {
+            if (cadastro.especializacao.equals(nome)) {
+                return cadastro;
+            }
+        }
+        return null;
+    }
+
     public void addPrescricao(Prescricao prescricao){
         this.prontuario.prescricoes.add(prescricao);
     }

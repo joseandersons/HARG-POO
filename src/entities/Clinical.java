@@ -30,6 +30,12 @@ public class Clinical {
     public void createDoctor(String name, char sexo, String especializacao, String cpf, int idade){
 
         Cadastro doctor = new Cadastro(name, sexo, especializacao, cpf, idade);
+        
+        Services procedimento = Services.buscarProcedimentoEsp(this.listaProcedimentos, especializacao);
+
+        if(procedimento != null){
+            procedimento.addProfissional(doctor);
+        }
 
         listaMedico.add(doctor);
     }
@@ -37,18 +43,15 @@ public class Clinical {
     public void createService(String procedimento, String especialidade, double valor){
         Services service = new Services(procedimento, especialidade, valor);
 
+        for(Cadastro cadastro : this.listaMedico) {
+            if(cadastro.especializacao.equals(especialidade)){
+                service.addProfissional(cadastro);
+            }
+        }
+
         listaProcedimentos.add(service);
         System.out.println("Procedimento criado com sucesso!!\n");
         service.printService();
-    }
-
-    public String pegarNomeProcedimento(String nome){
-        Services procedimento = Services.buscarProcedimento(this.listaProcedimentos, nome);
-        if(procedimento == null){
-            return null;
-        }
-
-        return procedimento.procedimento;
     }
 
     public String pegarNomeCadastro(String cpf){
@@ -70,7 +73,7 @@ public class Clinical {
     }
 
     public boolean verificarProcedimento(String nome){
-        Services procedimento = Services.buscarProcedimento(this.listaProcedimentos, nome);
+        Services procedimento = Services.buscarProcedimentoNome(this.listaProcedimentos, nome);
 
         if(procedimento != null){
             return true;
@@ -80,13 +83,13 @@ public class Clinical {
     }
 
     public void printService(String nome){
-        Services procedimento = Services.buscarProcedimento(this.listaProcedimentos, nome);
+        Services procedimento = Services.buscarProcedimentoNome(this.listaProcedimentos, nome);
 
         procedimento.printService();
     }
 
     public boolean verProfissionalService(String nomeMedico, String nomeProcedimento){
-        Services procedimento = Services.buscarProcedimento(this.listaProcedimentos, nomeProcedimento);
+        Services procedimento = Services.buscarProcedimentoNome(this.listaProcedimentos, nomeProcedimento);
 
         if(procedimento.verificarProfissional(nomeMedico)){
             return true;
@@ -151,5 +154,13 @@ public class Clinical {
     
     public void abrirCaixa(){
         this.caixa = new Caixa();
+    }
+
+    public Orcamento criarOrcamento(String cpf){
+        Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
+
+        Orcamento orcamento = new Orcamento(pessoa);
+
+        return orcamento;
     }
 }
