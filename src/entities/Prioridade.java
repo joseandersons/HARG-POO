@@ -3,7 +3,6 @@ package entities;
 public class Prioridade {
     int fator;
     int idade;
-    Cadastro paciente;
     boolean tabagismo, obesidade, hipertensao, gestante, diabetes;
 
     public Prioridade(Cadastro paciente, boolean tabagismo, boolean obesidade, boolean hipertensao, boolean gestante, boolean diabetes){
