@@ -29,19 +29,31 @@ public class Application {
             
             option = sc.nextInt();
             if(option == 1) {
+
                 criarFicha(clinica, 0);
+
             }else if(option == 2){
+
                 criarFicha(clinica, 1);
+
             }else if(option == 3){
+
                 cadastrarServico(clinica);
+
             }else if(option == 4){
+
                 agendarConsulta(clinica);
+
             }else if(option == 5){
+
                 verProntuario(clinica);
+
             }else if(option == 6){
                 //ExibirAgenda
             }else if(option == 7){
+
                 cadastrarPrescricao(clinica);
+
             }else if(option == 11){
                 break;
             }else{
@@ -242,6 +254,7 @@ public class Application {
                 break;
         }
 
+        System.out.println("Prescricao cadastrada com sucesso!");
     }
 }
 
