@@ -55,9 +55,13 @@ public class Application {
                 cadastrarPrescricao(clinica);
 
             }else if(option == 11){
+                
                 break;
+
             }else{
+
                 System.out.println("Opcao invalida!");
+
             }
         }
 
