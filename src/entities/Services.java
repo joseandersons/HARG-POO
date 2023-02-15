@@ -25,16 +25,28 @@ public class Services {
     
     public void printService() {
         System.out.println("Procedimento: " + procedimento);
-        System.out.println("Profissionais: ");
-        for (String nome : profissionais) {
-            System.out.println(nome);
-        } 
+        if(profissionais.size() != 0){
+            System.out.println("Profissionais: ");
+
+            for (String nome : profissionais) {
+                System.out.println(nome);
+            } 
+        }
         System.out.println("Valor: R$" + valor);
     }
 
-    public static Services buscarProcedimento(List<Services> allServices, String x) {
+    public static Services buscarProcedimentoNome(List<Services> allServices, String x){
         for(Services search : allServices) {
             if (search.procedimento.equals(x)) {
+                return search;
+            }
+        }
+        return null;
+    }
+
+    public static Services buscarProcedimentoEsp(List<Services> allServices, String x){
+        for(Services search : allServices) {
+            if (search.especialidade.equals(x)) {
                 return search;
             }
         }

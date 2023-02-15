@@ -2,9 +2,9 @@ package app;
 import java.util.Scanner;
 
 import entities.Clinical;
-import entities.Agenda;
-import entities.Caixa;
+import entities.Orcamento;
 import entities.Prescricao;
+import entities.Services;
 import utilites.CPFValidator;
 
 public class Application {
@@ -15,9 +15,9 @@ public class Application {
 
         int option;
 
-        System.out.printf("Bem Vindo!\nAbrindo Caixa do dia...\n");
+        System.out.println("\033[0m");
+        System.out.printf("Bem Vindo!\nAbrindo Caixa do dia...\n\n");
         clinica.abrirCaixa();
-
 
         while(true){
             System.out.println("Escolha uma das opções:");
@@ -61,7 +61,10 @@ public class Application {
             }else if(option == 7){
 
                 cadastrarPrescricao(clinica);
-        
+            }else if(option == 8){
+
+                gerarOrcamento(clinica);
+
             }else if(option == 9){
                 fecharCaixa(clinica);
 
@@ -86,6 +89,11 @@ public class Application {
         
         if(!CPFValidator.verificar(cpfPaciente)) {
             System.out.print("CPF Inválido!!");
+            return;
+        }
+
+        if(!clinica.verificarPessoa(cpfPaciente)){
+            System.out.println("Cadastro nao encontrado!\n");
             return;
         }
         
@@ -151,14 +159,61 @@ public class Application {
         cpf = sc.nextLine();
 
         System.out.print("Sexo: ");
-        sexo = sc.next().charAt(0);
+        sexo = sc.nextLine().charAt(0);
+
+        boolean tabagismo, obesidade, hipertensao, gestante, diabetes;
+
+        System.out.println("Fumante?(s/n)");
+        char op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            tabagismo = true;
+        }else{
+            tabagismo = false;
+        }
+
+        System.out.println("Obesidade?(s/n)");
+        op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            obesidade = true;
+        }else{
+            obesidade = false;
+        }
+
+        System.out.println("Hipertensao?(s/n)");
+        op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            hipertensao = true;
+        }else{
+            hipertensao = false;
+        }
+
+        System.out.println("Gestante?(s/n)");
+        op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            gestante = true;
+        }else{
+            gestante = false;
+        }
+
+        System.out.println("Diabetes?(s/n)");
+        op = sc.nextLine().charAt(0);
+        if(op == 's'){
+            diabetes = true;
+        }else{
+            diabetes = false;
+        }
 
         if(code == 1){
             System.out.print("\nDigite a especializacao: ");
             especializacao = sc.nextLine();
-            clinica.createDoctor(name, sexo, cpf, especializacao, idade);
+
+            clinica.createDoctor(name, sexo, cpf, especializacao, idade,
+                                 tabagismo, obesidade, hipertensao, gestante,
+                                 diabetes);
         }else{
-            clinica.createPatient(name, cpf, idade, sexo);
+            clinica.createPatient(name, cpf, idade, sexo, tabagismo,
+                                  obesidade, hipertensao, gestante,
+                                  diabetes);
         }
         //sc.close();
     }
@@ -256,7 +311,46 @@ public class Application {
 
     public static void fecharCaixa(Clinical clinica){
        clinica.fecharCaixa();
-       System.out.println("Caixa fechado com sucesso!");
+       System.out.println("Caixa fechado com sucesso!\n");
     }
-}
 
+    public static void gerarOrcamento(Clinical clinica){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+
+        if(!CPFValidator.verificar(cpf)){
+            System.out.println("CPF Invalido!");
+            return;
+        }
+
+        if(!clinica.verificarPessoa(cpf)){
+            System.out.println("Cadastro nao encontrado!");
+            return;
+        }
+
+        Orcamento orcamento = clinica.criarOrcamento(cpf);
+
+        while(true){
+            System.out.println("Procedimento: ");
+            String nomeProcedimento = sc.nextLine();
+
+            if(!clinica.verificarProcedimento(nomeProcedimento)){
+                System.out.println("Procedimento invalido!");
+                return;
+            }
+
+            orcamento.addOrcamento(Services.buscarProcedimentoNome(clinica.listaProcedimentos, nomeProcedimento));
+
+            System.out.println("Deseja cadastrar outro? (s/n)");
+            char op = sc.nextLine().charAt(0);
+            if(op == 'n')
+                break;
+        }
+
+        System.out.println("Orcamento gerado com sucesso!");
+        orcamento.printOrcamento();
+    }
+
+}

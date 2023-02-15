@@ -5,9 +5,9 @@ public class Prioridade {
     int idade;
     boolean tabagismo, obesidade, hipertensao, gestante, diabetes;
 
-    public Prioridade(Cadastro paciente, boolean tabagismo, boolean obesidade, boolean hipertensao, boolean gestante, boolean diabetes){
+    public Prioridade(int idade, boolean tabagismo, boolean obesidade, boolean hipertensao, boolean gestante, boolean diabetes){
         this.fator = 0;
-        this.idade = paciente.idade;
+        this.idade = idade;
         this.tabagismo = tabagismo;
         this.obesidade = obesidade;
         this.hipertensao = hipertensao;
