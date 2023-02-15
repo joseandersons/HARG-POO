@@ -40,5 +40,9 @@ public class Prioridade {
             fator += 1;
         }
     }
+
+    public int getFator(){
+        return fator;
+    }
     
 }
