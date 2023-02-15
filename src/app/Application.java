@@ -350,8 +350,10 @@ public class Application {
                 break;
         }
 
+        clinica.attCaixa(orcamento);
+
         System.out.println("Orcamento gerado com sucesso!");
-        orcamento.printOrcamento();
+        System.out.println(orcamento.printOrcamento());
     }
 
 }

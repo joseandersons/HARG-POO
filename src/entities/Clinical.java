@@ -180,4 +180,8 @@ public class Clinical {
 
         return orcamento;
     }
+
+    public void attCaixa(Orcamento orcamento){
+        this.caixa.addCaixa(orcamento);
+    }
 }
