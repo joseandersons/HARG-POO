@@ -28,7 +28,7 @@ public class Prescricao {
     public String toString(){
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < medicamentos.size(); i++){
-            String aux = String.format(medicamentos.get(i) + ": de " + intervalos.get(i) + " em " + intervalos.get(i) + " horas.");
+            String aux = String.format(medicamentos.get(i) + ": de " + intervalos.get(i) + " em " + intervalos.get(i) + " horas.\n");
             sb.append(aux);
         }
         return sb.toString();

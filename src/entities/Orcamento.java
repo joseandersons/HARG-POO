@@ -51,6 +51,6 @@ public class Orcamento {
     }
     
     public String printOrcamento(){
-        return "Valor total: R$ " + this.valor;
+        return "Valor total: R$ " + this.valor + "\n";
     }
 }

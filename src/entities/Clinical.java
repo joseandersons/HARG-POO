@@ -57,8 +57,6 @@ public class Clinical {
         Services service = new Services(procedimento, especialidade, valor);
 
         for(Cadastro cadastro : this.listaMedico) {
-            System.out.println("Teste");
-            System.out.printf("medico %s servico %s", cadastro.especializacao, especialidade);
             if(cadastro.especializacao.equals(especialidade)){
                 service.addProfissional(cadastro);
             }

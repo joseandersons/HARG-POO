@@ -20,6 +20,7 @@ public class Application {
         clinica.abrirCaixa();
 
         while(true){
+            System.out.println("\n=======================================");
             System.out.println("Escolha uma das opções:");
             System.out.println("01 - Cadastro do paciente\n"
                              + "02 - Cadastro do médico\n"
@@ -32,8 +33,11 @@ public class Application {
                              + "09 - Fechar Caixa\n"
                              + "10 - Cadastrar Convenio\n"
                              + "11 - Sair");
+            System.out.println("=======================================");
             
+            System.out.print("Opcao: ");
             option = sc.nextInt();
+            sc.nextLine();
 
             if(option == 1) {
 
@@ -265,7 +269,7 @@ public class Application {
     public static void cadastrarPrescricao(Clinical clinica){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("CPF: ");
+        System.out.print("CPF: ");
         String cpf = sc.nextLine();
 
         if(!CPFValidator.verificar(cpf)){
@@ -281,16 +285,16 @@ public class Application {
         Prescricao prescricao = clinica.criarPrescricao(cpf);
 
         while(true){
-            System.out.println("Medicamento: ");
+            System.out.print("Medicamento: ");
             String nomeMedicamento = sc.nextLine();
 
-            System.out.println("Intervalo: ");
+            System.out.print("Intervalo: ");
             int intervalo = sc.nextInt();
             sc.nextLine();
 
             prescricao.addPrescricao(nomeMedicamento, intervalo);
 
-            System.out.println("Deseja cadastrar outro? (s/n)");
+            System.out.print("Deseja cadastrar outro? (s/n): ");
             char op = sc.nextLine().charAt(0);
             if(op == 'n')
                 break;
@@ -328,7 +332,7 @@ public class Application {
     public static void gerarOrcamento(Clinical clinica){
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("CPF: ");
+        System.out.print("CPF: ");
         String cpf = sc.nextLine();
 
         if(!CPFValidator.verificar(cpf)){
@@ -344,7 +348,7 @@ public class Application {
         Orcamento orcamento = clinica.criarOrcamento(cpf);
 
         while(true){
-            System.out.println("Procedimento: ");
+            System.out.print("Procedimento: ");
             String nomeProcedimento = sc.nextLine();
 
             if(!clinica.verificarProcedimento(nomeProcedimento)){
@@ -354,7 +358,7 @@ public class Application {
 
             orcamento.addOrcamento(Services.buscarProcedimentoNome(clinica.listaProcedimentos, nomeProcedimento));
 
-            System.out.println("Deseja cadastrar outro? (s/n)");
+            System.out.print("Deseja cadastrar outro? (s/n): ");
             char op = sc.nextLine().charAt(0);
             if(op == 'n')
                 break;

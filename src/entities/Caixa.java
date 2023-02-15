@@ -19,6 +19,7 @@ public class Caixa {
             for(int j = 0; j < listaOrcamento.get(i).procedimento.size(); j++)
                 System.out.printf("Procedimento %s R$%.2f\n", listaOrcamento.get(i).procedimento.get(j).procedimento, listaOrcamento.get(i).procedimento.get(j).valor);
             System.out.printf("Valor total: R$%.2f\n", listaOrcamento.get(i).valor);
+            System.out.println("\n=======================================");
         }
 
         System.out.println();

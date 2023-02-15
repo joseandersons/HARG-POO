@@ -32,7 +32,7 @@ public class Services {
                 System.out.println(nome);
             } 
         }
-        System.out.println("Valor: R$" + valor);
+        System.out.println("Valor: R$" + valor + "\n");
     }
 
     public static Services buscarProcedimentoNome(List<Services> allServices, String x){
