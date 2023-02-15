@@ -184,4 +184,10 @@ public class Clinical {
     public void attCaixa(Orcamento orcamento){
         this.caixa.addCaixa(orcamento);
     }
+
+    public void alterarConvenio(String cpf, int nivel){
+        Cadastro pessoa = Cadastro.buscarCadastroCPF(this.listaPaciente, cpf);
+
+        pessoa.plano_saude = nivel;
+    }
 }

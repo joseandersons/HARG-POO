@@ -30,7 +30,8 @@ public class Application {
                              + "07 - Criar prescricao\n"
                              + "08 - Gerar orçamento\n"
                              + "09 - Fechar Caixa\n"
-                             + "10 - Sair");
+                             + "10 - Cadastrar Convenio\n"
+                             + "11 - Sair");
             
             option = sc.nextInt();
 
@@ -61,14 +62,18 @@ public class Application {
             }else if(option == 7){
 
                 cadastrarPrescricao(clinica);
+
             }else if(option == 8){
 
                 gerarOrcamento(clinica);
 
             }else if(option == 9){
                 fecharCaixa(clinica);
-
             }else if(option == 10){
+
+                cadastrarConvenio(clinica);
+
+            }else if(option == 11){
 
                 break;
             }else{
@@ -354,6 +359,30 @@ public class Application {
 
         System.out.println("Orcamento gerado com sucesso!");
         System.out.println(orcamento.printOrcamento());
+    }
+
+    public static void cadastrarConvenio(Clinical clinica){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+
+        if(!CPFValidator.verificar(cpf)){
+            System.out.println("CPF Invalido!");
+            return;
+        }
+
+        if(!clinica.verificarPessoa(cpf)){
+            System.out.println("Cadastro nao encontrado!");
+            return;
+        }
+
+        System.out.println("Nivel do Convenio: ");
+        int nivel = sc.nextInt();
+        sc.nextLine();
+
+        clinica.alterarConvenio(cpf, nivel);
+        System.out.println("Convenio alterado com sucesso!");
     }
 
 }
