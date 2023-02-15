@@ -9,7 +9,9 @@ public class Clinical {
     public List<Services> listaProcedimentos;
     public List<Orcamento> listaOrcamentos;
     public List<Appointment> listaConsultas;
-
+    public Caixa caixa;
+        
+    
     public Clinical(){
         this.listaMedico = new ArrayList<>();
         this.listaPaciente = new ArrayList<>();
@@ -141,5 +143,12 @@ public class Clinical {
         }
         
         return agenda;
+    }
+    public void fecharCaixa(){
+        this.caixa.clearList(this.listaOrcamentos);
+    }
+    
+    public void abrirCaixa(){
+        this.caixa = new Caixa();
     }
 }
